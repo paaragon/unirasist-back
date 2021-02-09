@@ -1,10 +1,9 @@
-import StudentAlert from '../models/dbentities/StudentAlert';
 import studentalertRepo from '../repositories/schoolrepos/studentalert.repo';
 import Action from './Action';
 
 export default class GetAlertsAction extends Action {
     public getName(): string {
-        return 'GetAlerts';
+        return 'MarkAlertsAsReaded';
     }
 
     protected validParamsImpl(context: any): boolean {
@@ -13,10 +12,12 @@ export default class GetAlertsAction extends Action {
     }
 
     protected async executeImpl(contextToFill: any) {
-        const { studentId } = contextToFill;
+        const { alertsToRead } = contextToFill;
 
-        const alerts: StudentAlert[] = await studentalertRepo.getNonReaded(studentId);
+        if (!alertsToRead || alertsToRead.length === 0) {
+            return;
+        }
 
-        contextToFill.alerts = alerts;
+        await studentalertRepo.markAsRead(alertsToRead);
     }
 }

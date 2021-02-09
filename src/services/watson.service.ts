@@ -32,8 +32,6 @@ export class WatsonService {
                 context: watsonContext,
                 input: { message_type: 'text', text: WatsonService.cleanInput(input), options: { return_context: true, debug: true } },
             });
-            console.log('==== RESPUESTA =====>');
-            console.log(JSON.stringify(response.result.output.debug.nodes_visited, null, 2));
             const parsedResponse = WatsonService.parseResponse(response);
             return parsedResponse;
         } catch (e) {

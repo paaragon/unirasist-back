@@ -17,7 +17,7 @@ export default abstract class Action {
 
     protected abstract validParamsImpl(context: any): boolean;
 
-    protected abstract async executeImpl(contextToFill: any): Promise<any>;
+    protected abstract executeImpl(contextToFill: any): Promise<any>;
 
     protected addError(context: any, errorCode: number, errorMsg: string): void {
         const errorCodeKey = this.getName() + 'ErrorCode';

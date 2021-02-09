@@ -3,12 +3,19 @@ import { WatsonService } from "./watson.service";
 import { CognitiveEngineResponse } from "../models/CognitiveEngineResponse";
 import GetStudentAction from "../actions/GetStudentAction";
 import GetAlertsAction from "../actions/GetAlertsAction";
+import MarkAlertsAsReadedAction from "../actions/MarkAlertsAsReadedAction";
+
+const actionsList = [
+    new GetStudentAction(),
+    new GetAlertsAction(),
+    new MarkAlertsAsReadedAction(),
+]
 
 const actionsLimit = 10;
-const actions: { [actionName: string]: Action } = {
-    'GetStudent': new GetStudentAction(),
-    'GetAlerts': new GetAlertsAction()
-};
+const actions: { [actionName: string]: Action } = {};
+for (const action of actionsList) {
+    actions[action.getName()] = action;
+}
 
 export default {
     handleResponseActions: async function (input: string, response: CognitiveEngineResponse): Promise<CognitiveEngineResponse> {
