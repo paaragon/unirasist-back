@@ -4,11 +4,13 @@ import { CognitiveEngineResponse } from "../models/CognitiveEngineResponse";
 import GetStudentAction from "../actions/GetStudentAction";
 import GetAlertsAction from "../actions/GetAlertsAction";
 import MarkAlertsAsReadedAction from "../actions/MarkAlertsAsReadedAction";
+import GetExamsAction from "../actions/GetExamsAction";
 
 const actionsList = [
     new GetStudentAction(),
     new GetAlertsAction(),
     new MarkAlertsAsReadedAction(),
+    new GetExamsAction(),
 ]
 
 const actionsLimit = 10;

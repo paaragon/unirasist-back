@@ -1,4 +1,3 @@
-import { get } from 'config';
 import { getRepository } from 'typeorm';
 import Student from '../../models/dbentities/Student';
 
