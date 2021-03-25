@@ -5,12 +5,14 @@ import GetStudentAction from "../actions/GetStudentAction";
 import GetAlertsAction from "../actions/GetAlertsAction";
 import MarkAlertsAsReadedAction from "../actions/MarkAlertsAsReadedAction";
 import GetExamsAction from "../actions/GetExamsAction";
+import GetStudentMatters from "../actions/GetStudentMatters";
 
 const actionsList = [
     new GetStudentAction(),
     new GetAlertsAction(),
     new MarkAlertsAsReadedAction(),
     new GetExamsAction(),
+    new GetStudentMatters(),
 ]
 
 const actionsLimit = 10;

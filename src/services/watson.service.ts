@@ -132,7 +132,6 @@ export class WatsonService {
         }
         let ret: string[] = [];
         for (const out of output) {
-            console.log(out);
             const literalsIds = (out as { text: string }).text.split('\n');
             ret = ret.concat(literalsIds);
         }
